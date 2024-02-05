@@ -6,7 +6,7 @@ export const normalize = (
   maxFrom: number,
   minTo: number = 0,
   maxTo: number = 1,
-  precision?: number = 3
+  precision: number = 3
 ): number => {
   // Ensure the value is within the source range
   const clampedValue = Math.min(maxFrom, Math.max(minFrom, value));
