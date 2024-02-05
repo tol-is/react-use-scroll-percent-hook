@@ -84,6 +84,15 @@ export const useScrollPosition = (props: UseScrollPositionProps) => {
     };
   }, [ref]);
 
+  useIsomorphicLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+
+    window.addEventListener("resize", getSectionBounds);
+    return () => {
+      window.removeEventListener("resize", getSectionBounds);
+    };
+  }, []);
+
   useEffect(() => {
     if (inView) {
       getSectionBounds();
@@ -97,22 +106,6 @@ export const useScrollPosition = (props: UseScrollPositionProps) => {
       cancelAnimationFrame(rafRef.current);
     };
   }, [inView, animate, getSectionBounds]);
-
-  useIsomorphicLayoutEffect(() => {
-    if (typeof window === "undefined") return;
-
-    window.addEventListener("resize", getSectionBounds);
-    return () => {
-      window.removeEventListener("resize", getSectionBounds);
-    };
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      enabledRef.current = false;
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
 
   return { ref };
 };

@@ -48,10 +48,11 @@ export default function App() {
 
   return (
     <main>
+      <h1>Scroll down</h1>
       <section ref={ref} style={{ "--steps": steps } as React.CSSProperties}>
         <article>
           <div className="percent" ref={percentRef} />
-          <div>
+          <div className="bars">
             <p className="par" ref={p1Ref} />
             <div className="bar">
               <div ref={bar1Ref} />

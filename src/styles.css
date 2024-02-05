@@ -3,9 +3,16 @@ body {
   background-color: #e5e5e5;
 }
 
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  padding: 20px;
+}
+
 section {
   position: relative;
-  margin: 100vh 0 100vh 0;
+  margin: 105vh 0 105vh 0;
   height: calc(var(--steps) * 100vh);
   display: block;
   background-color: #ff00cc;
@@ -13,10 +20,10 @@ section {
 
 .percent {
   position: absolute;
-  top: 40px;
+  top:10px;
   right: 40px;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 5vmax;
   z-index: 10;
 }
 
@@ -27,30 +34,38 @@ article {
   padding: 20px;
   background-color: #ffcc00;
   display: grid;
-  grid-template-columns: 4fr 8fr;
+  place-content: center;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  position:absolute;
+  left: 0px;
+  bottom: 20px;
 }
 
 .par {
-  font-size: 18px;
+  font-size: 2vmax;
   font-weight: bold;
   line-height: 1;
   margin: 10px 0;
 }
 .bar {
-  width: 200px;
-  height: 12px;
+  width: 18vmax;
+  height: 1.5vmax;
   background-color: #fff;
 }
 
 .bar > div {
-  width: 200px;
-  height: 12px;
+  width: 18vmax;
+  height: 1.5vmax;
   background-color: #000;
   transform-origin: 0 0;
 }
 .active {
-  font-size: 172px;
+  font-size: 22vmax;
   font-weight: bold;
-  display: grid;
-  place-content: center;
 }
