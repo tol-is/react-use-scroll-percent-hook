@@ -41,8 +41,8 @@ export default function App() {
   };
 
   const { ref } = useScrollPosition({
-    offsetTop: 0,
-    offsetBottom: 0,
+    offsetTop: -0.1,
+    offsetBottom: -0.1,
     onChange: handlePercentChange,
   });
 
