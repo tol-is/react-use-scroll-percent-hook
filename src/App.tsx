@@ -5,16 +5,16 @@ import { normalize } from "./normalize";
 import "./styles.css";
 
 export default function App() {
-  const percentRef = useRef<HTMLDivElement>(null);
+  const percentRef = useRef<HTMLDivElement>(null!);
 
-  const p1Ref = useRef<HTMLParagraphElement>(null);
-  const bar1Ref = useRef<HTMLDivElement>(null);
+  const p1Ref = useRef<HTMLParagraphElement>(null!);
+  const bar1Ref = useRef<HTMLDivElement>(null!);
 
-  const p2Ref = useRef<HTMLParagraphElement>(null);
-  const bar2Ref = useRef<HTMLDivElement>(null);
+  const p2Ref = useRef<HTMLParagraphElement>(null!);
+  const bar2Ref = useRef<HTMLDivElement>(null!);
 
-  const p3Ref = useRef<HTMLParagraphElement>(null);
-  const bar3Ref = useRef<HTMLDivElement>(null);
+  const p3Ref = useRef<HTMLParagraphElement>(null!);
+  const bar3Ref = useRef<HTMLDivElement>(null!);
 
   const [activeStep, setActiveStep] = useState(-1);
 
@@ -22,19 +22,19 @@ export default function App() {
   const step = 1 / steps;
 
   const handlePercentChange = (scrollPercent:number) => {
-    percentRef.current.innerHTML = scrollPercent;
+    percentRef.current.innerHTML = scrollPercent.toString();
 
     const p1 = normalize(scrollPercent, step * 0, step * 1);
     const p2 = normalize(scrollPercent, step * 1, step * 2);
     const p3 = normalize(scrollPercent, step * 2, step * 3);
 
-    p1Ref.current.innerHTML = p1;
+    p1Ref.current.innerHTML = p1.toString();
     bar1Ref.current.style.transform = `scaleX(${p1})`;
 
-    p2Ref.current.innerHTML = p2;
+    p2Ref.current.innerHTML = p2.toString();
     bar2Ref.current.style.transform = `scaleX(${p2})`;
 
-    p3Ref.current.innerHTML = p3;
+    p3Ref.current.innerHTML = p3.toString();
     bar3Ref.current.style.transform = `scaleX(${p3})`;
 
     setActiveStep(Math.min(Math.floor(scrollPercent / (1 / steps)), steps - 1));
